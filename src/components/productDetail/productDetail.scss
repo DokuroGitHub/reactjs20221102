@@ -1,0 +1,90 @@
+.product-detail {
+  flex-direction: row;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+
+  .content-left {
+    width: 50%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .image-up {
+      img {
+        max-width: 30vw;
+        alt: '..\assets\images\snicker1.jpg';
+      }
+    }
+
+    .image-down {
+      display: flex;
+      gap: 10px;
+
+      .image-small {
+        width: calc((30vw - 3 * 10px)/4);
+        height: calc((30vw - 3 * 10px)/4);
+
+        img {
+          alt: '..\assets\images\snicker1.jpg';
+          padding: 5px;
+          width: calc((30vw - 3 * 10px)/4 - 10px);
+          height: calc((30vw - 3 * 10px)/4 - 10px);
+          // border: 1px solid green;
+        }
+
+        .active {
+          border-radius: 10px;
+          border: 1px solid #ff3945;
+        }
+      }
+    }
+  }
+
+  .content-right {
+    width: 50%;
+    color: black;
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      padding: 15px 0 10px 0;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: 600;
+      padding: 5px 0 15px 0;
+    }
+
+    .size {
+      padding: 5px 0;
+    }
+
+    .action {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px 0 10px 0;
+
+      .quantity {
+        height: 25px;
+        width: 54px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+      }
+
+      .buy {
+        background: #ff3945;
+        border: none;
+        outline: none;
+        height: 30px;
+        width: 60%;
+        border-radius: 3px;
+        color: white;
+      }
+    }
+  }
+}
