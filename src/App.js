@@ -11,9 +11,10 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER } from './components/navigator/constants';
+import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER, ROUTE_OTP } from './components/navigator/constants';
 import logo from './logo.svg';
 import './App.scss';
+import OTP from './components/otp/OTP';
 
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
         </Route>
         <Route path={ROUTE_WEATHER}>
           <Weather />
+        </Route><Route path={ROUTE_OTP}>
+          <OTP />
         </Route>
         <Route path='*'>
           <Page404 />

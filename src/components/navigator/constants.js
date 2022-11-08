@@ -4,6 +4,7 @@ export const ROUTE_ADD_PRODUCT = '/add-product';
 export const ROUTE_PRODUCT_LIST = '/product-list';
 export const ROUTE_TODO_LIST = '/todo-list';
 export const ROUTE_WEATHER = '/weather';
+export const ROUTE_OTP = '/otp';
 
 export const routes = [
     {
@@ -29,5 +30,9 @@ export const routes = [
     {
         route: ROUTE_WEATHER,
         title: 'Weather',
+    },
+    {
+        route: ROUTE_OTP,
+        title: 'OTP',
     },
 ];
