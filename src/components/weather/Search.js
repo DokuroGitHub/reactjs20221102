@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import _ from "lodash";
 import RenderSearchResults from "./RenderSearchResults";
+import { useEffect } from "react";
 
 const Search = () => {
     const [data, setData] = useState([]);
@@ -31,6 +32,11 @@ const Search = () => {
             setIsLoading(false);
         }, 100);
     }
+    // effect
+    useEffect(() => {
+        handleSearch();
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="search-weather-container">
