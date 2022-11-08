@@ -1,8 +1,9 @@
-import logo from './logo.svg';
-import './App.scss';
 import ToDoList from './components/todo/ToDoList';
 import ProductList from './components/product/ProductList';
 import ProductDetail from './components/productDetail/ProductDetail';
+import AddProductWidget from './components/product/AddProductWidget';
+import Page404 from './components/page404/Page404';
+import Weather from './components/weather/Weather';
 import 'react-image-lightbox/style.css';
 import NavBar from './components/Navigator/NavBar';
 import {
@@ -11,9 +12,8 @@ import {
   Route,
 } from "react-router-dom";
 import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER } from './components/Navigator/constants';
-import AddProductWidget from './components/product/AddProductWidget';
-import Page404 from './components/page404/Page404';
-import Weather from './components/weather/Weather';
+import logo from './logo.svg';
+import './App.scss';
 
 function App() {
   return (
