@@ -5,13 +5,13 @@ import AddProductWidget from './components/product/AddProductWidget';
 import Page404 from './components/page404/Page404';
 import Weather from './components/weather/Weather';
 import 'react-image-lightbox/style.css';
-import NavBar from './components/Navigator/NavBar';
+import NavBar from './components/navigator/NavBar';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER } from './components/Navigator/constants';
+import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER } from './components/navigator/constants';
 import logo from './logo.svg';
 import './App.scss';
 
