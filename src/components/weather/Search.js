@@ -1,13 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import _ from "lodash";
-import { useHistory } from "react-router-dom";
+import RenderSearchResults from "./RenderSearchResults";
 
 const Search = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [keyword, setKeyword] = useState("");
-    let history = useHistory();
     // fn
     const handleSearch = async () => {
         setTimeout(async () => {
@@ -33,9 +32,6 @@ const Search = () => {
         }, 100);
     }
 
-    const handleViewDetail = (woeid) => {
-        history.push(`/weather/detail/${woeid}`);
-    }
     return (
         <div className="search-weather-container">
             <div className="search-inputs">
@@ -45,23 +41,9 @@ const Search = () => {
                     value={keyword}
                     onChange={(event) => setKeyword(event.target.value)}
                 />
-                <button onClick={() => handleSearch()}>Search</button>
+                <button onClick={handleSearch}>Search</button>
             </div>
-
-            <div className="result-container">
-                {data && data.length > 0 &&
-                    data.map((item, index) => {
-                        return (
-                            <div className="result-child" key={`location-${index}`}>
-                                <div className="title">Title: {item.title}</div>
-                                <div className="type">Type: {item.location_type}</div>
-                                <div className="woeid"><span onClick={() => handleViewDetail(item.woeid)}>Woeid: {item.woeid}</span></div>
-                                <div className="latt_long">latt_long: {item.latt_long}</div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            <RenderSearchResults data={data} isLoading={isLoading} />
         </div>
     )
 }

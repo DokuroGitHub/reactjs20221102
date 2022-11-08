@@ -17,11 +17,71 @@
             display: flex;
             flex-direction: row;
             gap: 15px;
-            justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             padding: 15px;
-        }
 
+            .search-result-item {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                width: 20vw;
+                border: 1px solid red;
+
+                .title {
+                    height: 20px;
+                    color: red;
+                }
+
+                .type {
+                    height: 20px;
+                    color: pink;
+                }
+
+                .woeid {
+                    height: 20px;
+                    color: blue;
+                }
+
+                .lattLong {
+                    height: 20px;
+                    color: green;
+                }
+            }
+
+            .search-result-item-skeleton {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                width: 20vw;
+                border: 1px solid red;
+
+                .title {
+                    height: 20px;
+                    width: 8vw;
+                    background-color: red;
+                }
+
+                .type {
+                    height: 20px;
+                    width: 12vw;
+                    background-color: pink;
+                }
+
+                .woeid {
+                    height: 20px;
+                    width: 10vw;
+                    background-color: blue;
+                }
+
+                .lattLong {
+                    height: 20px;
+                    width: 20vw;
+                    background-color: green;
+                }
+            }
+        }
     }
 }

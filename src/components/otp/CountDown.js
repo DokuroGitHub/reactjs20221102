@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 const CountDown = (props) => {
-    const [count, setCount] = useState(10);
+    // props
+    const initialCount = props.initialCount ?? 10;
+    const setIsTimeOut = props.setIsTimeOut;
+    const [count, setCount] = useState(initialCount);
 
     useEffect(() => {
         if (count === 0) {
-            props.setIsDisableBtn(true);
+            if (setIsTimeOut) {
+                setIsTimeOut(true);
+            }
             return;
         };
         const timer = setInterval(() => {
@@ -15,7 +20,7 @@ const CountDown = (props) => {
         return () => {
             clearInterval(timer);
         }
-    }, [count]);
+    }, [count, setIsTimeOut]);
     return (
         <div>
             {count}
