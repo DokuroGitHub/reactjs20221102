@@ -1,9 +1,9 @@
 import {
+    useNavigate,
     useParams
 } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import WeatherDay from "./WeatherDay";
 import _ from "lodash";
 import './WeatherByLocation.scss';
@@ -15,7 +15,7 @@ const WeatherByLocation = (props) => {
     const { woeidFromParent } = props;
     let { woeid } = useParams();
     const [locationWeather, setLocationWeather] = useState({});
-    let history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         getWeatherByLocation();
@@ -40,7 +40,7 @@ const WeatherByLocation = (props) => {
     }
 
     const handleBack = () => {
-        history.push(ROUTE_WEATHER)
+        navigate(ROUTE_WEATHER)
     }
     return (
         <div className="w-b-l-container">

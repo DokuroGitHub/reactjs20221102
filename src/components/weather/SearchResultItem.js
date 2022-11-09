@@ -1,11 +1,11 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchResultItem = (props) => {
     const { title, locationType, woeid, lattLong } = props;
-    let history = useHistory();
+    const navigate = useNavigate();
 
     const handleViewDetail = (woeid) => {
-        history.push(`/weather/detail/${woeid}`);
+        navigate(`/weather/detail/${woeid}`);
     }
     return (
         <div className="search-result-item">
