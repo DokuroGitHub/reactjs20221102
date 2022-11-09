@@ -3,6 +3,7 @@ export const ROUTE_PRODUCT_DETAIL = '/product-detail';
 export const ROUTE_ADD_PRODUCT = '/add-product';
 export const ROUTE_PRODUCT_LIST = '/product-list';
 export const ROUTE_TODO_LIST = '/todo-list';
+export const ROUTE_WEATHER_DETAIL = '/weather/detail/:woeid';
 export const ROUTE_WEATHER = '/weather';
 export const ROUTE_OTP = '/otp';
 

@@ -11,10 +11,11 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER, ROUTE_OTP } from './components/navigator/constants';
+import { ROUTE_ADD_PRODUCT, ROUTE_HOME, ROUTE_PRODUCT_DETAIL, ROUTE_PRODUCT_LIST, ROUTE_TODO_LIST, ROUTE_WEATHER_DETAIL, ROUTE_WEATHER, ROUTE_OTP } from './components/navigator/constants';
 import logo from './logo.svg';
 import './App.scss';
 import OTP from './components/otp/OTP';
+import WeatherByLocation from './components/weather/detail/WeatherByLocation';
 
 function App() {
   return (
@@ -51,9 +52,13 @@ function App() {
         <Route path={ROUTE_TODO_LIST}>
           <ToDoList />
         </Route>
+        <Route path={ROUTE_WEATHER_DETAIL}>
+          <WeatherByLocation />
+        </Route>
         <Route path={ROUTE_WEATHER}>
           <Weather />
-        </Route><Route path={ROUTE_OTP}>
+        </Route>
+        <Route path={ROUTE_OTP}>
           <OTP />
         </Route>
         <Route path='*'>

@@ -1,0 +1,18 @@
+.weather-state-container {
+    display: flex;
+    align-items: flex-end;
+
+    .icon-state {
+        img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .name-state {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 5px;
+        margin-left: 5px;
+    }
+}

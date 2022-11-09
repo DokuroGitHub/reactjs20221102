@@ -18,7 +18,7 @@ const RenderSearchResults = (props) => {
                 />
             )}
             {isLoading && [0, 1, 2].map((e) =>
-                <SearchResultItemSkeleton />
+                <SearchResultItemSkeleton key={`search-result-item-skeleton-${e}`} />
             )}
             {!isLoading && _.isEmpty(data) &&
                 < div > Không tìm thấy kết quả</div>
