@@ -8,7 +8,7 @@ const OTP = (props) => {
     const initialCount = props.initialCount ?? 60;
     // state
     const [orgOTPParent, setOrgOTPParent] = useState("");
-
+    // render
     return (
         <div className="otp-parent-container">
             <GenerateOTP

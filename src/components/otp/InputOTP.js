@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import OtpInput from 'react-otp-input';
 import CountDownAnimation from './countDown/CountDownAnimation';
 import _ from 'lodash';
@@ -9,15 +9,28 @@ const InputOTP = (props) => {
     // state
     const [isTimeOut, setIsTimeOut] = useState(false);
     const [otp, setOtp] = useState("");
+    // ref
+    const countDownAnimationRef = useRef();
     // fn
     const handleChangeOtp = (value) => {
         setOtp(value);
     }
 
+    const handleClear = () => {
+        setOtp('');
+        countDownAnimationRef.current.resetTime();
+    }
+
     const handleConfirmOTP = () => {
         if (!orgOTPParent) {
             alert("Empty OTP~");
-        } else if (orgOTPParent === otp) {
+            return;
+        }
+        if (!otp) {
+            alert("Please fill the OTP~");
+            return;
+        }
+        if (orgOTPParent === otp) {
             alert("Correct OTP ^^")
         } else {
             alert("Wrong OTP ~~")
@@ -39,6 +52,7 @@ const InputOTP = (props) => {
             />
             <div className='timer'>
                 <CountDownAnimation
+                    ref={countDownAnimationRef}
                     initialCount={initialCount}
                     setIsTimeOut={setIsTimeOut}
                 />
@@ -46,7 +60,7 @@ const InputOTP = (props) => {
             <div className='action'>
                 <button className='clear'
                     disabled={isDisableClear()}
-                    onClick={() => setOtp('')}
+                    onClick={handleClear}
                 >clear
                 </button>
                 <button className='confirm'
@@ -56,8 +70,7 @@ const InputOTP = (props) => {
                 </button>
             </div>
         </div>
-    )
-
+    );
 }
 
 export default InputOTP;

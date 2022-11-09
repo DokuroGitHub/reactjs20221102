@@ -1,32 +1,32 @@
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import './CountDownAnimation.scss';
 
 
 
-const CountDownAnimation = (props) => {
+const CountDownAnimation = forwardRef((props, ref) => {
+    // props
+    const { initialCount, setIsTimeOut } = props;// DEFAULT_TIME_LIMIT;
     // const
     const DEFAULT_TIME_LIMIT = 20;
     const FULL_DASH_ARRAY = 283;
-    const WARNING_THRESHOLD = 10;
-    const ALERT_THRESHOLD = 5;
+    const WARNING_THRESHOLD = .5;
+    const ALERT_THRESHOLD = .25;
+    const INITIAL_COUNT = initialCount ?? DEFAULT_TIME_LIMIT;
     const COLOR_CODES = {
         info: {
             color: "green"
         },
         warning: {
             color: "orange",
-            threshold: WARNING_THRESHOLD
+            threshold: Math.floor(WARNING_THRESHOLD * INITIAL_COUNT)
         },
         alert: {
             color: "red",
-            threshold: ALERT_THRESHOLD
+            threshold: Math.floor(ALERT_THRESHOLD * INITIAL_COUNT)
         }
     };
-    // props
-    const initialCount = props.initialCount ?? DEFAULT_TIME_LIMIT;
-    const setIsTimeOut = props.setIsTimeOut;
     // state
-    const [timeLeft, setTimeLeft] = useState(initialCount);
+    const [timeLeft, setTimeLeft] = useState(INITIAL_COUNT);
     const [remainingPathColor, setRemainingPathColor] = useState(COLOR_CODES.info.color);
     const [strokeDasharray, setStrokeDasharray] = useState(`${FULL_DASH_ARRAY}`);
     // effect
@@ -47,6 +47,14 @@ const CountDownAnimation = (props) => {
         };
         // eslint-disable-next-line
     }, [timeLeft]);
+
+    useImperativeHandle(ref, () => ({
+        resetTime() {
+            setTimeLeft(INITIAL_COUNT);
+            setRemainingPathColor(COLOR_CODES.info.color);
+            setIsTimeOut(false);
+        }
+    }));
     // fn
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60);
@@ -69,8 +77,8 @@ const CountDownAnimation = (props) => {
     }
 
     const calculateTimeFraction = (timeLeft) => {
-        const rawTimeFraction = timeLeft / initialCount;
-        return rawTimeFraction - (1 / initialCount) * (1 - rawTimeFraction);
+        const rawTimeFraction = timeLeft / INITIAL_COUNT;
+        return rawTimeFraction - (1 / INITIAL_COUNT) * (1 - rawTimeFraction);
     }
 
     const handleSetCircleDasharray = (timeLeft) => {
@@ -96,6 +104,6 @@ const CountDownAnimation = (props) => {
             <span className="base-timer__label">{formatTime(timeLeft)}</span>
         </div>
     );
-}
+});
 
 export default CountDownAnimation;
