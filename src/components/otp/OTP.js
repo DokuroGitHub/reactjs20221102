@@ -3,18 +3,11 @@ import GenerateOTP from "./GenerateOTP";
 import InputOTP from "./InputOTP";
 import './OTP.scss';
 
-const OTP = () => {
+const OTP = (props) => {
+    // props
+    const initialCount = props.initialCount ?? 60;
+    // state
     const [orgOTPParent, setOrgOTPParent] = useState("");
-    const [userOTPParent, setUserOTPParent] = useState("");
-    const [isDisableBtn, setIsDisableBtn] = useState(false);
-
-    const handleSubmitOTP = () => {
-        if (+orgOTPParent === +userOTPParent) {
-            alert("Correct OTP ^^")
-        } else {
-            alert("Wrong OTP ~~")
-        }
-    }
 
     return (
         <div className="otp-parent-container">
@@ -22,10 +15,8 @@ const OTP = () => {
                 setOrgOTPParent={setOrgOTPParent}
             />
             <InputOTP
-                setUserOTPParent={setUserOTPParent}
-                handleSubmitOTP={handleSubmitOTP}
-                isDisableBtn={isDisableBtn}
-                setIsDisableBtn={setIsDisableBtn}
+                initialCount={initialCount}
+                orgOTPParent={orgOTPParent}
             />
         </div>
     )

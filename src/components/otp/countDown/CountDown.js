@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const CountDown = (props) => {
     // props
-    const initialCount = props.initialCount ?? 10;
+    const initialCount = props.initialCount ?? 20;
     const setIsTimeOut = props.setIsTimeOut;
     const [count, setCount] = useState(initialCount);
 

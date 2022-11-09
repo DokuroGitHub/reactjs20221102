@@ -1,14 +1,17 @@
 import { useState } from "react";
 
 const GenerateOTP = (props) => {
-    //original
+    // props
+    const { setOrgOTPParent } = props;
+    // state
     const [orgOTP, setOrgOTP] = useState("");
-
+    // fn
     const handleClickBtn = () => {
-        const otp = Math.floor(100000 + Math.random() * 900000);
-        setOrgOTP(otp);
-        props.setOrgOTPParent(otp);
+        const _otp = `${Math.floor(100000 + Math.random() * 900000)}`;
+        setOrgOTP(_otp);
+        setOrgOTPParent(_otp);
     }
+    // render
     return (
         <div className="generate-otp-container">
             <button onClick={() => handleClickBtn()}>Generate OTP</button>

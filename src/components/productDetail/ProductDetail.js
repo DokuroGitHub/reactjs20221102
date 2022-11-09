@@ -1,9 +1,9 @@
 import './productDetail.scss';
 import Lightbox from 'react-image-lightbox';
-import snicker1 from '../../assets/images/snicker1.jpg';
-import snicker2 from '../../assets/images/snicker2.jpg';
-import snicker3 from '../../assets/images/snicker3.jpg';
-import snicker4 from '../../assets/images/snicker4.jpg';
+import snicker1 from '../../assets/images/products/snicker1.jpg';
+import snicker2 from '../../assets/images/products/snicker2.jpg';
+import snicker3 from '../../assets/images/products/snicker3.jpg';
+import snicker4 from '../../assets/images/products/snicker4.jpg';
 import { useState } from 'react';
 import ImageSmall from './ImageSmall';
 
