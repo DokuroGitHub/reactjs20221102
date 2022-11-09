@@ -23,8 +23,8 @@ import {
 import './App.scss';
 import OTP from './components/otp/OTP';
 import WeatherByLocation from './components/weather/detail/WeatherByLocation';
-import Layout from './Layout';
 import Home from './components/home/Home';
+import Layout from './components/layout/Layout';
 
 const App = () => {
   return (
