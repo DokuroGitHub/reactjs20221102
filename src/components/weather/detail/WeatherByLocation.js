@@ -11,6 +11,8 @@ import moment from "moment";
 import { ROUTE_WEATHER } from "../../navigator/constants";
 
 const WeatherByLocation = (props) => {
+    // props
+    const { woeidFromParent } = props;
     let { woeid } = useParams();
     const [locationWeather, setLocationWeather] = useState({});
     let history = useHistory();
@@ -21,7 +23,7 @@ const WeatherByLocation = (props) => {
     }, []);
     const getWeatherByLocation = async () => {
         if (!woeid) {
-            woeid = props.woeidFromParent;
+            woeid = woeidFromParent;
         }
         let res = await axios({
             method: 'post',
@@ -48,9 +50,9 @@ const WeatherByLocation = (props) => {
                 </div>
             }
             <div className="list-weather-day">
-                {!_.isEmpty(locationWeather) && locationWeather.consolidated_weather
-                    && locationWeather.consolidated_weather.length > 0
-                    && locationWeather.consolidated_weather.map((item, index) => {
+                {!_.isEmpty(locationWeather) && locationWeather.consolidatedWeather
+                    && locationWeather.consolidatedWeather.length > 0
+                    && locationWeather.consolidatedWeather.map((item, index) => {
                         return (
                             <div key={`weatherday-${index}`} className={`weather-day-${index}`}>
                                 {index === 0 &&
