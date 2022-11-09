@@ -44,7 +44,7 @@ const WeatherByLocation = (props) => {
     }
     return (
         <div className="w-b-l-container">
-            {!props.woeidFromParent &&
+            {!woeidFromParent &&
                 <div className="back">
                     <span onClick={() => handleBack()}>--Back--</span>
                 </div>
